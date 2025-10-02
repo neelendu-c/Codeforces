@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define int long long
 
-int main()
+signed main()
 {
 
     int t;
@@ -27,22 +28,15 @@ int main()
             }
         }
 
-        if (pc >= nc && nc % 2 == 0)
+        int op = 0;
+
+        while (pc - nc < 0 || nc % 2 == 1)
         {
-            cout << 0 << endl;
-        }
-        else if (pc>=nc && nc%2==0)
-        {
-            cout << 1 << endl;   
-        }
-        else if (pc<nc && nc%2==0)
-        {
-            cout << 2 * ceil((nc-pc)/2)<<endl;
-        }
-        else if (pc<nc && nc%2==1)
-        {
-            cout << 2 * ceil((nc-pc)/2) - 1 <<endl;
+            op++;
+            nc--;
+            pc++;
         }
 
+        cout << op << endl;
     }
 }
